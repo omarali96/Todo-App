@@ -1,0 +1,136 @@
+* {
+    font-family: sans-serif;
+
+}
+
+button {
+    appearance: none;
+    /* background: none;
+    border: none; */
+    outline: none;
+    border-radius: 0.7rem;
+    height: 40px;
+    width: 40px;
+    margin: 0px 20px;
+}
+
+body {
+    background-color: cornflowerblue;
+    color: antiquewhite;
+}
+
+header {
+    /* min-height: 100vh; */
+    display: flex;
+    justify-content: center;
+
+}
+
+header h1 {
+    font-weight: bolder;
+    margin-bottom: 30px;
+}
+
+main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+}
+
+.todo {
+    width: 100%;
+    max-width: 768px;
+}
+
+.add_task {
+    display: flex;
+    justify-content: center;
+}
+
+.add_task>label {
+    font-size: large;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-right: 20px;
+}
+
+.task_items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: rgba(255, 252, 127);
+    box-shadow: 0 0 10px rgba(255, 252, 127, 0.6);
+    border-radius: 1rem;
+}
+
+.task_items input[type="checkbox"] {
+    margin-right: 20px;
+}
+
+.task_items input[type="text"] {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 20px;
+    font-weight: bold;
+    flex: 1 1 0%;
+}
+
+.task_items input[type="text"]:not(:disabled) {
+    border-bottom: 2px solid black;
+}
+
+.task_items.completed {
+    opacity: 0.6;
+}
+
+.task_items.completed input[type="text"] {
+    text-decoration: line-through;
+}
+
+.task_items #task_priority {
+    color: black;
+    margin-top: 10px;
+}
+
+.task_items:last-of-type {
+    margin-bottom: 0;
+}
+
+.task_items:hover,
+.task_items:focus-within {
+    outline: 4px solid greenyellow;
+}
+
+#task_name {
+
+    border-radius: 0.7rem;
+    border: none;
+    margin-right: 20px;
+    padding: 5px;
+}
+
+#priority {
+    border-radius: 0.7rem;
+    border: none;
+
+}
+
+.actions button{
+    opacity: 0.6;
+    transform: 0.1s;
+}
+#edit{
+    color: cornflowerblue;
+}
+#remove{
+    color: crimson;
+}
+.actions button:hover{
+    opacity: 1;
+}
+
