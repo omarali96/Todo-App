@@ -8,11 +8,12 @@ let task_items=[];
 
 add_task.addEventListener('click',create_task);
 
+
 function create_task(){
 	console.log("create task");
     const item = {
 		id: new Date().getTime(),
-		text: "",
+		text: "Task Name",
 		completed: false
 	}
 	task_items.unshift(item);
@@ -53,6 +54,7 @@ function create_task_element(item) {
 	input_element.type = "text";
 
 	input_element.value = item.text;
+	
 	input_element.setAttribute("disabled", "");
 
 	const priority_select_element = document.createElement("select");
@@ -75,6 +77,12 @@ function create_task_element(item) {
 	const actions_element = document.createElement("div");
 	actions_element.classList.add("actions");
 
+	const save_btn_element = document.createElement("button");
+	save_btn_element.classList.add('fa-regular', 'fa-floppy-disk','d-none');
+
+	const cancel_btn_element = document.createElement("button");
+	cancel_btn_element.classList.add('fa-solid', 'fa-xmark','d-none');
+
 	const edit_btn_element = document.createElement("button");
 	edit_btn_element.classList.add('fa-solid', 'fa-pen');
 	edit_btn_element.setAttribute("id", "edit");
@@ -86,6 +94,8 @@ function create_task_element(item) {
 
 	actions_element.append(edit_btn_element);
 	actions_element.append(remove_btn_element);
+	actions_element.append(save_btn_element);
+	actions_element.append(cancel_btn_element);
 
 	item_element.append(checkbox);
 	item_element.append(input_element);
@@ -106,22 +116,37 @@ function create_task_element(item) {
 
 		save();
 	});
-
+	let is_valid_input = (input_element) ?()=> input_element.value.trim().length > 0: ()=> false;
 	input_element.addEventListener("input", () => {
 		console.log("input eventListener");
-		item.text=input_element.value;
+		while(!is_valid_input(input_element)){
+			prompt("invalid input");
+			item.text=input_element.value;
+		}
 	});
 
 	input_element.addEventListener("blur", () => {
 		console.log("check box eventListener disabled");
+		if(!is_valid_input(input_element)){
+			let valid_input = prompt("invalid input, Please enter a valid input");
+			input_element.value = valid_input;
+		}
 		input_element.setAttribute("disabled", "");
+		priority_select_element.setAttribute("disabled", "");
 		save();
 	});
 
 	edit_btn_element.addEventListener("click", () => {
 		console.log("edit button eventListener");
 		input_element.removeAttribute("disabled");
+		priority_select_element.removeAttribute("disabled");
+		save_btn_element.classList.remove("d-none");
+		cancel_btn_element.classList.remove("d-none");
+		edit_btn_element.classList.add("d-none");
+		remove_btn_element.classList.add("d-none");
+		item.text=input_element.value;
 		input_element.focus();
+
 	});
 
 	remove_btn_element.addEventListener("click",() => {
@@ -132,6 +157,24 @@ function create_task_element(item) {
 
 		save();
 	});
+
+	save_btn_element.addEventListener("click", () => {
+		input_element.setAttribute("disabled", "");
+		save_btn_element.classList.add("d-none");
+		cancel_btn_element.classList.add("d-none");
+		edit_btn_element.classList.remove("d-none");
+		remove_btn_element.classList.remove("d-none");
+		item.text = input_element.value;
+	});
+
+	cancel_btn_element.addEventListener("click", () => {
+		
+		save_btn_element.classList.add("d-none");
+		cancel_btn_element.classList.add("d-none");
+		edit_btn_element.classList.remove("d-none");
+		remove_btn_element.classList.remove("d-none");
+		input_element.value=item.text;
+	})
 	console.log("create task");
 	return {item_element, input_element,  priority_select_element ,actions_element}
 
