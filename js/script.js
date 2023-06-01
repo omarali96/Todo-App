@@ -133,6 +133,10 @@ function create_task_element(item) {
 		}
 		input_element.setAttribute("disabled", "");
 		priority_select_element.setAttribute("disabled", "");
+		save_btn_element.classList.add("d-none");
+		cancel_btn_element.classList.add("d-none");
+		edit_btn_element.classList.remove("d-none");
+		remove_btn_element.classList.remove("d-none");
 		save();
 	});
 
