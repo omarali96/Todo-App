@@ -25,8 +25,19 @@
     <!-- end header -->
     <!-- start adding task section -->
     <div class="add_task">
+            <label for="taskName">Task Name</label>
+            <input type="text" id="taskName">
+            <label for="priority"> Priority (less is more)</label>
+            <select name="priority" id="priority">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
             
-            <button class="fa-solid fa-plus " id="add_task_btn"  aria-label="create task"></button>
+            <button class="fa-solid fa-plus " aria-label="create task" id="add"></button>
+            <button class="btn-danger deleteChecked" id="deleteChecked">Delete Checked</button>
         
     </div>
     <!-- end adding task section -->
@@ -57,7 +68,7 @@
 
 
 </main>
-        <script src="./js/script.js"></script>
+        <script src="./js/refactor.js"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

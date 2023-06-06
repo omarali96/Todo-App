@@ -9,9 +9,15 @@ button {
     border: none; */
     outline: none;
     border-radius: 0.7rem;
-    height: 40px;
-    width: 40px;
-    margin: 0px 20px;
+    height: 50px;
+    width: 50px;
+    /* margin: 0px 20px; */
+   
+}
+
+.deleteChecked{
+    height: 50px;
+    width: 150px;
 }
 
 body {
@@ -40,12 +46,12 @@ main {
 
 .todo {
     width: 100%;
-    max-width: 768px;
+    max-width: 998px;
 }
 
 .add_task {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 .d-none{
     display:none;
@@ -125,6 +131,7 @@ main {
 .actions button{
     opacity: 0.8;
     transform: 0.1s;
+    margin: 0px 20px;
 }
 #edit{
     color: cornflowerblue;
@@ -132,7 +139,14 @@ main {
 #remove{
     color: crimson;
 }
+
 .actions button:hover{
     opacity: 1;
+}
+
+#stat{
+    
+    width: 100px;
+    margin:  20px;
 }
 
